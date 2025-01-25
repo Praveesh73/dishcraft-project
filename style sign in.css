@@ -1,0 +1,304 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'Times New Roman', Times, serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+body {
+    font-size: 18px;
+    position: relative;
+}
+
+/* Add a pseudo-element for background with opacity */
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url(https://i.pinimg.com/736x/3d/46/4d/3d464d60a056f42833d519dde1cc5bd3.jpg);
+    background-position: center;
+    background-size: cover;
+    opacity: 0.8;
+    z-index: -1; /* Ensure it stays behind the content */
+}
+header {
+    width: 100%;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+    background: rgb(246, 245, 191);
+    opacity: .85;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: bold;
+    color: rgb(111, 27, 23);
+    font-family: Matura MT Script Capitals;
+    margin-right: 5px;
+    margin-left: 10;
+}
+.slogan{
+    font-size: 19px;
+    font-weight: bold;
+    color: rgb(247, 20, 20);
+    font-family: Gabriola;
+    margin-right: 5px;
+    margin-left: 0;
+}
+
+.nav-bar ul {
+    display: flex;
+    list-style: none;
+    align-items: center;
+}
+
+.nav-bar ul li a {
+    display: block;
+    color: indigo;
+    font-size: 18px;
+    padding: 8px 10px;
+    transition: 0.2s;
+    margin: 0 5px;
+    text-decoration: none;
+}
+
+.nav-bar ul li:hover a {
+    background-color: lightgray;
+    color: darkblue;
+    cursor: pointer;
+}
+
+.nav-bar .btn-sign-up {
+    margin-left: 20px;
+}
+
+.content {
+    position: absolute;
+    top: 40%;
+    left: 8%;
+    transform: translateY(-50%);
+}
+
+h1 {
+    font-size: 45px;
+    text-align: center;
+    text-decoration: underline;
+    color: rgb(249, 249, 34);
+}
+
+.sign-in p {
+    font-size: 20px;
+    text-align: center;
+    margin: 20px auto 40px;
+    max-width: 700px;
+    color: #fff;
+}
+.sign-in p a{
+    color:rgb(92, 208, 240);
+}
+
+.btn-sign-up, .btn-login {
+    background-color: rgb(34, 26, 1);
+    color: azure;
+    text-decoration: none;
+    border: 2px solid rgb(246, 245, 191);
+    font-weight: bold;
+    padding: 10px 25px;
+    margin-left: 10px;
+    transition: 0.4s;
+    border-radius: 5px;
+    text-align: center;
+    cursor: pointer;
+}
+.btn-cancel {
+    background-color: rgb(241, 240, 237);
+    color: rgb(5, 7, 7);
+    text-decoration: none;
+    border: 2px solid rgb(17, 17, 17);
+    font-weight: bold;
+    padding: 10px 20px;
+    margin-left: 10px;
+    transition: 0.4s;
+    border-radius: 5px;
+}
+
+.btn-sign-up:hover, .btn-login:hover, .btn-cancel:hover {
+    background-color: rgb(253, 197, 108);
+    color: rgb(1, 1, 23);
+    border: 2px solid black;
+}
+
+.sign-in input[type=text],
+.sign-in input[type=password] {
+    display: block;
+    margin: 10px auto;
+    padding: 18px;
+    width: 60%;
+    max-width: 500px;
+    border: 1px solid #ccc;
+    font-size: 17px;
+    border-radius: 5px;
+}
+
+.sign-in button {
+    margin: 20px 10px;
+}
+
+.sign-in {
+    position: relative;
+    top: 20px;
+    text-align: center;
+}
+
+footer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background: #f4f0f0;
+    padding: 50px 0;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.footer-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.foot {
+    display: table-cell;
+    padding: 30px;
+    text-align: center;
+    vertical-align: top;
+}
+
+.foot h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+    color: #333;
+}
+
+.foot ul {
+    list-style: none;
+    text-decoration:none ;
+    padding: 0;
+}
+
+.foot ul li a {
+    color: #555;
+    text-decoration: none;
+    text-align: left;
+    font-size: 17px;
+}
+
+.foot ul li a:hover {
+    color: #f2a900;
+    text-decoration: underline;
+}
+
+.footer-image {
+    max-width: 170px;
+    height: 170px;
+    border-radius: 8px;
+
+}
+
+.footer-icons ul {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    list-style: none;
+    padding: 0;
+}
+
+.footer-icons ul li a {
+    display: inline-flex;
+    width: 40px;
+    height: 40px;
+    align-items: center;
+    justify-content: center;
+    background-color: #333;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.footer-icons ul li a:hover {
+    background-color: #f2a900;
+}
+
+.footer-icons ul li a i {
+    font-size: 18px;
+    color: white;
+}
+
+.copyrightText {
+    width: 100%;
+    background: #fff;
+    padding: 20px 0;
+    text-align: center;
+    color: #555;
+    border-top: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .footer-row {
+        flex-direction: column;
+    }
+
+    .foot {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+@media (max-width: 480px) {
+    h1 {
+        font-size: 40px;
+        margin: 20px;
+    }
+
+    .sign-in input[type=text],
+    .sign-in input[type=password] {
+        width: 90%;
+        font-size: 15px;
+    }
+
+    .btn-sign-up, .btn-login, .btn-cancel {
+        width: 90%;
+        margin: 10px auto;
+    }
+
+    p {
+        width: 95%;
+        font-size: 18px;
+    }
+
+    .footer-image {
+        max-width: 120px;
+    }
+}
