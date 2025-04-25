@@ -70,7 +70,7 @@ Use a local server like XAMPP or WAMP.
 
 Place the project folder in the htdocs directory.
 
-Access it from http://localhost/Dishcraft - project
+Access it from http://localhost/Dishcraft-project
 
 Contributing
 Pull requests are welcome! For major changes, please open an issue first to discuss what you would like to change.
