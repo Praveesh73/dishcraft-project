@@ -1,109 +1,134 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
+    <title>User Profile - DishCraft</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DishCraft - Web Page</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="profile1.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-        integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/style head.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 </head>
-
 <body>
     <header>
-        <div class="logo">
-            DishCraft
+        <div class="logo">DishCraft
             <div class="slogan">...Where Recipes Come to Life...</div>
         </div>
-        <nav class="nav-bar">
-            <ul>
-                <li><a href="home.html">Home</a></li>
-                <li><a href="recipes.html">Recipes</a></li>
-                <li><a href="create_recipe.html">Create Recipes</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li class="search-icon"><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
-                <li class="profile"></li>
-            </ul>
-        </nav>
     </header>
-    <!-- Profile Section with Dropdown -->
-    <div class="Drop">
-        <label for="btn-1" class="one">
-            <i class="fa-solid fa-circle-user"></i>
-        </label>
-        <input type="checkbox" id="btn-1">
-        <div class="view">
-            <main>
-                <div class="profile-card">
-                    <i class="fa-solid fa-circle-user"></i>
-                    <h2 id="name">Gihansa Perera</h2>
-                    <p id="email">Gihansa123@gmail.com</p>
-                    <p id="phone">+94123 456 7890</p>
-                    <button id="edit-profile" class="edit-profile">Edit Profile</button>
 
-                    <input type="checkbox" id="btn-1">
-                    <div class="views">
+    <main>
+        <section class="profile-container">
+            <h1>User Profile</h1>
 
-                        <div class="edit-modal hidden" id="edit-modal">
-                            <div class="modal-content">
-                                <h3>Edit Profile</h3>
-                                <label for="name-input">Name:
-                                    <input type="text" id="name-input" placeholder="Enter name"></label>
-                                <label for="email-input">Email:</label>
-                                <input type="email" id="email-input" placeholder="Enter email">
-                                <label for="phone-input">Phone:</label>
-                                <input type="tel" id="phone-input" placeholder="Enter phone number">
-                                <button id="save-changes">Save Changes</button>
-                                <button id="cancel-edit">Cancel</button>
-                            </div>
-                            <div></div>
-                        </div>
-                    </div>
-                    <button id="edit-profile" class="edit-profile">Logout</button>
-                </div>
-                <script>
-                    const editProfileButton = document.getElementById("edit-profile");
-                    const editModal = document.getElementById("edit-modal");
-                    const cancelEditButton = document.getElementById("cancel-edit");
+            <!-- Display profile info -->
+            <div class="profile-info">
+                <p><strong>Username:</strong> <span id="displayName">Loading...</span></p>
+                <p><strong>Email:</strong> <span id="displayEmail">Loading...</span></p>
+                <p><strong>Phone:</strong> <span id="displayPhone">Loading...</span></p>
+                <button onclick="toggleEdit()">Edit Profile</button><br>
+                <a href="logout.php"><button>Logout</button></a>
+            </div>
 
-                    // Show the edit modal when the "Edit Profile" button is clicked
-                    editProfileButton.addEventListener("click", () => {
-                        editModal.classList.remove("hidden");
-                    });
+            <!-- Edit form -->
+            <div class="edit-form" style="display: none;">
+                <form id="updateForm">
+                    <label>Username:</label>
+                    <input type="text" id="editName" name="name" required><br>
 
-                    // Hide the edit modal when the "Cancel" button is clicked
-                    cancelEditButton.addEventListener("click", () => {
-                        editModal.classList.add("hidden");
-                    });
+                    <label>Email:</label>
+                    <input type="email" id="editEmail" name="email" required><br>
 
-                    // Optional: Hide the modal if the user clicks outside it
-                    window.addEventListener("click", (e) => {
-                        if (!editModal.contains(e.target) && e.target !== editProfileButton) {
-                            editModal.classList.add("hidden");
-                        }
-                    });
+                    <label>Phone:</label>
+                    <input type="text" id="editPhone" name="phone" required><br>
 
-                    // Toggle the visibility of the profile dropdown
-                    const profileBtn = document.getElementById('profile-btn');
-                    const submenu = document.getElementById('submenu');
+                    <button type="submit">Save</button>
+                    <button type="button" onclick="cancelEdit()">Cancel</button>
+                </form>
+            </div>
+        </section>
+    </main>
 
-                    profileBtn.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        submenu.classList.toggle('openmenu');
-                    });
+    <script>
+        // Load user data from PHP
+        function loadProfile() {
+            fetch('get_profile.php')
+                .then(response => response.json())
+                .then(data => {
+                    document.getElementById('displayName').innerText = data.username;
+                    document.getElementById('displayEmail').innerText = data.email;
+                    document.getElementById('displayPhone').innerText = data.phone;
 
-                    // Close submenu if clicked outside
-                    document.addEventListener('click', (e) => {
-                        if (!profileBtn.contains(e.target) && !submenu.contains(e.target)) {
-                            submenu.classList.remove('openmenu');
-                        }
-                    });
-                </script>
+                    // Prefill form inputs
+                    document.getElementById('editName').value = data.username;
+                    document.getElementById('editEmail').value = data.email;
+                    document.getElementById('editPhone').value = data.phone;
+                });
+        }
+
+        function toggleEdit() {
+            document.querySelector('.edit-form').style.display = 'block';
+            document.querySelector('.profile-info').style.display = 'none';
+        }
+
+        function cancelEdit() {
+            document.querySelector('.edit-form').style.display = 'none';
+            document.querySelector('.profile-info').style.display = 'block';
+        }
+
+        // Submit updated profile info
+        document.getElementById('updateForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            const formData = new FormData(this);
+
+            fetch('update_profile.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.text())
+            .then(message => {
+                alert(message);
+                loadProfile(); // Reload new data
+                cancelEdit();  // Hide form
+            });
+        });
+
+        // Initialize
+        loadProfile();
+        <!-- profile.html -->
+
+        // Fetch user data on load
+        fetch('get_profile.php')
+            .then(res => res.json())
+            .then(data => {
+                document.getElementById('userName').innerText = data.username;
+                document.getElementById('userEmail').innerText = data.email;
+                document.getElementById('userPhone').innerText = data.phone;
+            });
+
+        function toggleEdit() {
+            document.getElementById('editSection').style.display = 'block';
+            document.getElementById('nameInput').value = document.getElementById('userName').innerText;
+            document.getElementById('emailInput').value = document.getElementById('userEmail').innerText;
+            document.getElementById('phoneInput').value = document.getElementById('userPhone').innerText;
+        }
+
+        function saveProfile() {
+            const formData = new FormData();
+            formData.append('name', document.getElementById('nameInput').value);
+            formData.append('email', document.getElementById('emailInput').value);
+            formData.append('phone', document.getElementById('phoneInput').value);
+
+            fetch('update_profile.php', {
+                method: 'POST',
+                body: formData
+            }).then(res => res.text())
+              .then(msg => {
+                  alert(msg);
+                  location.reload();
+              });
+        }
+
+        function logout() {
+            window.location.href = 'logout.php';
+        }
+    </script>
 </body>
-
 </html>

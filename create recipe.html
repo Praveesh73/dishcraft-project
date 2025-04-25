@@ -6,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>DishCraft-Web page</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
-    <link rel="stylesheet" href="create.css">
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/create.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
         integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -18,7 +18,7 @@
     <header>
         <div class="logo"> DishCraft
             <div class="slogan">...Where Recipes Come to Life...</div>
-            </div>
+        </div>
         <nav class="nav-bar">
             <ul>
                 <li><a href="home.html">Home</a></li>
@@ -26,8 +26,8 @@
                 <li><a href="create recipe.html"><U>Create Recipes</U></a></li>
                 <li><a href="Contact page.html">Contact</a></li>
                 <li><a href="aboutUs.html">About Us</a></li>
-                <li class="search-icon"><a href="#"><i class="fa-solid fa-magnifying-glass"></i></a></li>
-                <li class="profile"><a href="home.html"><i class="fa-solid fa-circle-user"></i></a></li>
+                <li class="search-icon"><a href="home.html"><i class="fa-solid fa-magnifying-glass"></i></a></li>
+                <li class="profile"><a href="profile.php"><i class="fa-solid fa-circle-user"></i></a></li>
             </ul>
         </nav>
     </header>
@@ -36,91 +36,91 @@
         <h1>Create Your Own Recipes</h1>
     </div>
     <div class="uploaded">
-        <form action="#" method="post">
-
-        <input type="file" id="image_input" accept="image/*">
-        <div id="display_image"></div>
-
-
-    <p>Give name for Recipe :
-        <input type="text" placeholder="Recipe name..." name="Username" required>
-    </p><br>
-    <label for="Categories">Choose a category:</label>
-
-    <select name="Category" id="Categories" required>
-        <option value="" disabled selected>Select category</option>
-        <option value="category 1">category 1</option>
-        <option value="category 2">category 2</option>
-        <option value="category 3">category 3</option>
-        <option value="category 4">category 4</option>
-        <option value="category 5">category 5</option>
-        <option value="category 6">category 6</option>
-        <option value="category 7">category 7</option>
-        <option value="category 8">category 8</option>
-    </select><br>
-<br>
-    <p>Ingredients:</p>
-            <textarea id="ingredients" name="ingredients" rows="5" cols="50" placeholder="Add ingredients..." required></textarea><br><br>
-
+        <form action="addrecipe.php" method="post" enctype="multipart/form-data">
+            <input type="file" id="image_input" name="image" accept="image/*" required>
+            <div id="display_image"></div>
+        
+            <p>Give name for Recipe:</p>
+            <input type="text" placeholder="Recipe name..." name="recipe_name" required><br><br>
+        
+            <label for="Categories">Choose a category:</label>
+            <select name="Category" id="Categories" required>
+                <option value="" disabled selected>Select category</option>
+                <option value="Breakfast & Brunch">Breakfast & Brunch</option>
+                <option value="Appetizer & Snacks">Appetizer & Snacks</option>
+                <option value="Soups & Stews">Soups & Stews</option>
+                <option value="Main Course">Main Course</option>
+                <option value="Vegetarian & Vegan">Vegetarian & Vegan</option>
+                <option value="Baked Goods">Baked Goods</option>
+                <option value="Desserts & Sweets">Desserts & Sweets</option>
+                <option value="Drinks & Smoothies">Drinks & Smoothies</option>
+            </select><br><br>
+        
+            <p>Ingredients:</p>
+            <textarea name="ingredients" rows="5" cols="50" placeholder="Add ingredients..." required></textarea><br><br>
+        
             <p>Instructions:</p>
-            <textarea id="instructions" name="instructions" rows="10" cols="50" placeholder="How to make..." required></textarea><br><br>
-
-    <p>Sharing Option:<br></p>
-        <input type="radio" id="Public" value="Public">
-        <lable for="Public">Public</lable><br>
-        <input type="radio" id="Private" value="Private">
-        <lable for="Private">Private</lable><br>
-
-        <button type="submit">Submit Recipe</button>
+            <textarea name="instructions" rows="10" cols="50" placeholder="How to make..." required></textarea><br><br>
+        
+            <p>Sharing Option:</p>
+            <input type="radio" id="Public" name="sharing" value="Public" required>
+            <label for="Public">Public</label><br>
+            <input type="radio" id="Private" name="sharing" value="Private" required>
+            <label for="Private">Private</label><br><br>
+        
+            <button type="submit">Submit Recipe</button>
         </form>
+        
 
-</div>
-<script src="create.js"></script><br>
+    </div>
+    <script src="js/create.js"></script><br>
 
-<footer class="footer">
-    <div class="Container">
-        <div class="footer-row">
-            <img src="logo/logo.png" alt="Logo" class="footer-image">      
-            <div class="foot">
-                <h2>Contact</h2>
-                <ul class="info">
-                    <li>
-                        <span><i class="fa-solid fa-phone"></i></span>
-                        <p><a href="tel:+9476123456">+94 76 123 456</a></p>
-                    </li>
-                    <li>
-                        <span><i class="fa-solid fa-envelope"></i></span>
-                        <p><a href="mailto:DishCraft@gmail.com">DishCraft@gmail.com</a></p>
-                    </li>
-                </ul>
-            </div>
-            <br>
-            <div class="foot">
-                <h2>Legal</h2>
-                <ul>
-                    <li><a href="">Privacy Policy</a></li>
-                    <li><a href="">Cookie Policy</a></li>
-                    <li><a href="">Refund Policy</a></li>
-                    <li><a href="">Terms & Conditions</a></li>
-                </ul>
+    <footer class="footer">
+        <div class="Container">
+            <div class="footer-row">
+                <img src="logo/logo.png" alt="Logo" class="footer-image">
+                <div class="foot">
+                    <h2>Contact</h2>
+                    <ul class="info">
+                        <li>
+                            <span><i class="fa-solid fa-phone"></i></span>
+                            <p><a href="tel:+9476123456">+94 76 123 456</a></p>
+                        </li>
+                        <li>
+                            <span><i class="fa-solid fa-envelope"></i></span>
+                            <p><a href="mailto:DishCraft@gmail.com">DishCraft@gmail.com</a></p>
+                        </li>
+                    </ul>
+                </div>
+                <br>
+                <div class="foot">
+                    <h2>Legal</h2>
+                    <ul>
+                        <li><a href="aboutUs.html">Privacy Policy</a></li>
+                        <li><a href="aboutUs.html">Cookie Policy</a></li>
+                        <li><a href="aboutUs.html">Refund Policy</a></li>
+                        <li><a href="aboutUs.html">Terms & Conditions</a></li>
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
+        <br>
+        <div class="footer-icons">
+            <ul>
+                <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
+                <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
+            </ul>
+        </div>
+    </footer>
     <br>
-    <div class="footer-icons">
-        <ul>
-            <li><a href="#"><i class="fa-brands fa-instagram"></i></a></li>
-            <li><a href="#"><i class="fa-brands fa-facebook"></i></a></li>
-            <li><a href="#"><i class="fa-brands fa-twitter"></i></a></li>
-            <li><a href="#"><i class="fa-brands fa-youtube"></i></a></li>
-        </ul>
+    <div class="copyrightText">
+        <p>© 2024 Your website. All rights reserved</p>
     </div>
-</footer>
-<br>
-<div class="copyrightText">
-    <p>© 2024 Your website. All rights reserved</p>
-</div>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
 </body>
+
 </html>
-    

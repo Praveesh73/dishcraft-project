@@ -1,0 +1,232 @@
+/* General Styles */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(120deg, #0d7142, #9fe4ba); /* Soft pastel gradient */
+    color: #333;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+}
+
+
+
+/* Buttons */
+.btn {
+    background: #FF6B6B;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    margin: 10px 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+.btn:hover {
+    background: #FF4444;
+    transform: scale(1.05); /* Slight hover effect */
+}
+
+.back-btn{
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 28px;
+    margin: 10px 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+.delete-btn{
+    background: #ee1d1d;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 35px;
+    margin: 10px 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: all 0.3s ease;
+}
+
+.delete-btn:hover .back-btn{
+    background: #555;
+}
+
+/* Edit Section */
+.edit-section {
+    display: none;
+    margin-top: 20px;
+    padding: 15px;
+    background: #f9f9f9;
+    border-radius: 10px;
+    text-align: left;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.edit-section label {
+    display: block;
+    font-size: 0.9em;
+    margin-bottom: 5px;
+    color: #666;
+}
+
+.edit-section input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 0.9em;
+}
+
+.edit-section input:focus {
+    border-color: #FF6B6B;
+    outline: none;
+}
+
+.cancel-button {
+    background: #999;
+}
+
+.cancel-button:hover {
+    background: #666;
+}
+
+/* Responsive Design */
+@media screen and (max-width: 500px) {
+    .profile-card {
+        width: 90%; /* Make the card more fluid for smaller screens */
+    }
+
+    .edit-section input {
+        font-size: 0.8em;
+        padding: 8px;
+    }
+
+    .button {
+        font-size: 0.9em;
+    }
+}
+.container{
+    min-height: 70vh;
+    background-color: rgb(239, 227, 149);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+    border-radius: 5%;
+    border-color:  #070807;
+}
+.container .profile{
+    padding: 20px;
+    background-color: var(--white);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    width: 400px;
+    border-radius: 5px;
+}
+
+.container .profile img{
+    height: 150px;
+    width: 150PX;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 5px;
+}
+.container .profile h2{
+    margin: 5px 0;
+    font-size: 20px;
+}
+
+.update-profile{
+    height: 90%;
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+
+.update-profile form{
+    padding: 20px;
+    background-color: var(--white);
+    box-shadow: var(--box-shadow);
+    text-align: center;
+    width: 700px;
+    text-align: center;
+    border-radius: 5px;
+}
+
+.update-profile form img{
+    height: 200px;
+    width: 200p;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 5px;
+ }
+ 
+ .update-profile form .flex{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+    gap:15px;
+ }
+ 
+ .update-profile form .flex .inputBox{
+    width: 49%;
+ }
+ 
+ .update-profile form .flex .inputBox span{
+    text-align: left;
+    display: block;
+    margin-top: 15px;
+    font-size: 17px;
+    color:var(--black);
+ }
+ 
+ .update-profile form .flex .inputBox .box{
+    
+    border-radius: 5px;
+    background-color: var(--light-bg);
+    padding:12px 14px;
+    font-size: 17px;
+    color:var(--black);
+    margin-top: 10px;
+ }
+ 
+ @media (max-width:750px){
+    .update-profile form .flex{
+       flex-wrap: wrap;
+       gap:0;
+    }
+    .update-profile form .flex .inputBox{
+       width: 100%;
+    }
+ }
+ .message {
+    display: block;
+    width: 100%;
+    padding: 10px 0;
+    margin-top: 15px;
+    text-align: center;
+    font-size: 18px;
+    border-top: 3px solid;
+    border-bottom: 3px solid;
+}
+
+.message.error {
+    background-color: red;
+    color: white;
+    border-color: darkred;
+}
+
+.message.success {
+    background-color: #4CAF50;
+    color: white;
+    border-color: #388E3C;
+}
