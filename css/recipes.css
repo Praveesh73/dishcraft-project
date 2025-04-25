@@ -27,10 +27,9 @@ header {
     color: rgb(111, 27, 23);
     font-family: Matura MT Script Capitals;
     margin-right: 5px;
-    margin-left: 10px;
+    margin-left: 10;
 }
-
-.slogan {
+.slogan{
     font-size: 19px;
     font-weight: bold;
     color: rgb(247, 20, 20);
@@ -42,8 +41,12 @@ header {
 .nav-bar ul {
     display: flex;
     list-style: none;
+    
 }
-
+.nav-bar ul li {
+    margin: 0 10px;
+  }
+  
 .nav-bar ul li a {
     display: block;
     color: indigo;
@@ -59,64 +62,209 @@ header {
     cursor: pointer;
 }
 
+/* Navigation search styling */
+.search-icon {
+    position: relative;
+    padding: 10px 15px;
+    margin-left: auto;
 
+}
+
+.nav-search-form {
+        display: flex;
+        align-items: center;
+        margin-left: auto;
+      
+}
+
+.nav-search-form button {
+    background: none;
+    border: none;
+    font-size: 18px;
+    cursor: pointer;
+    color: indigo;
+    transition: color 0.3s;
+    
+}
+
+.nav-search-form button:hover {
+    color: #555;
+}
+
+.nav-search-input {
+    width: 0;
+    opacity: 0;
+    padding: 6px 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    transition: all 0.3s ease;
+}
+
+/* Show input on focus or hover */
+.nav-search-form:hover .nav-search-input,
+.nav-search-input:focus {
+    width: 150px;
+    opacity: 1;
+}
+
+/* Welcome Section */
+.welcome {
+    height: 100vh;
+    width: 100%;
+    background-image: url(https://i.pinimg.com/736x/bb/94/b3/bb94b3f457b130e0249f376b5658d65e.jpg);
+    background-position: center;
+    background-size: cover;
+    opacity: 0.9;
+}
+
+.welcome .search-container {
+    position: relative;
+    top: 100px;
+    text-align: center;
+}
+
+.welcome input[type=text] {
+    width: 50%;
+    max-width: 600px;
+    padding: 18px;
+    font-size: 17px;
+    border: none;
+    margin-top: 50px;
+}
+
+.welcome .search-container button {
+    padding: 18px;
+    font-size: 17px;
+    border: none;
+    cursor: pointer;
+    background: #ddd;
+}
+
+.welcome .search-container button:hover {
+    background: #ccc;
+}
+
+/* Content Section */
 body {
     background: rgb(246, 245, 191);
 }
 
 h1 {
-    font-family: Calibri (Body);
-    font-size: 40px;
-    margin-bottom: 20px;
+    font-size: 45px;
     text-align: center;
+    text-decoration: underline;
     color: rgb(9, 9, 3);
+    margin: 40px 0;
 }
 
-.about-us {
-    background-color: #fff;
-    padding: 50px 20px;
-    text-align: center;
+.favorites, .categories {
+    width: 100%;
+    padding: 20px 0;
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 20px;
+.Favorites, .Categories {
+    width: 100%;
+    padding: 20px 0px;
+    background-color: #213032;
 }
 
-
-h2 {
-    font-size: 28px;
-    margin-top: 40px;
-    margin-bottom: 20px;
-}
-
-p {
-    font-size: 18px;
-    line-height: 1.6;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.team {
+.box, .boxes {
     display: flex;
-    justify-content: center;
     flex-wrap: wrap;
-    margin-top: 40px;
+    align-items: center;
+    justify-content: center;
 }
 
-.team-member {
-    margin: 20px;
-    text-align: center;
-    flex: 1 0 200px;
+.cards {
+    position: relative;
+    width: 320px;
+    height: 300px;
+    margin: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
 }
 
-.team-img {
-    width: 150px;
-    height: 150px;
-    border-radius: 50%;
+ .cards img {
+    width: 100%;
+    height: 100%;
+    cursor: zoom-in;
+    object-fit: cover;
+    transition: 0.3s ease;
+}
+.cards img:hover {
+    transform: scale(1.3);
+}
+.card{
+    position: relative;
+    width: 320px;
+    height: 300px;
+    margin: 15px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+}
+
+.card img{
+    width: 100%;
+    height: 100%;
     object-fit: cover;
 }
+
+.card .content, .cards .content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 20px;
+    background-color: rgba(127, 255, 212, 0.9);
+    color: #040808;
+    text-align: center;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.card:hover .content, .cards:hover .content {
+    opacity: 1;
+}
+
+.card p, .cards p {
+    font-size: 14px;
+    margin: 10px 0;
+}
+
+.card button, .cards button {
+    background-color: #213032;
+    color: white;
+    border: none;
+    padding: 2px 5px;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.card button:hover, .cards button:hover {
+    background-color: #97a2a3;
+    color: #213032;
+}
+.card a,.cards a{
+    display: block;
+    color: rgb(255, 255, 255);
+    font-size: 16px;
+    padding: 10px 15px;
+    transition: 0.2s;
+    text-decoration: none;
+}
+.card a:hover,.cards a:hover {
+    background-color: #97a2a3;
+    color: #333;
+    cursor: pointer;
+}
+
 footer {
     width: 100%;
     display: flex;
@@ -145,13 +293,13 @@ footer {
 
 .foot h2 {
     font-size: 22px;
-    margin-bottom: 0px;
+    margin-bottom: 10px;
     color: #333;
 }
 
 .foot ul {
     list-style: none;
-    padding: -10px;
+    padding: 0;
 }
 
 .foot ul li a {
@@ -174,7 +322,6 @@ footer {
     max-width: 170px;
     height: 170px;
     border-radius: 8px;
-    margin-top: 40px;
 }
 
 .footer-icons {
@@ -286,4 +433,3 @@ footer {
       border: 1px solid #ccc;  
     }
 }
-
